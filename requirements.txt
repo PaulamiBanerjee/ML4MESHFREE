@@ -1,12 +1,10 @@
 dash==2.11.1
 dash-bootstrap-components==1.5.0
 lightgbm==4.1.0
-MAPIE @ file:///home/conda/feedstock_root/build_artifacts/mapie_1694697871458/work
-numpy @ file:///D:/bld/numpy_1651020764721/work
-pandas @ file:///C:/b/abs_b9kefbuby2/croot/pandas_1677835593760/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+mapie
+numpy
+pandas
+pickleshare
 plotly==5.18.0
 scikit-learn==1.2.2
-scikit-plot==0.3.7
-scipy @ file:///C:/bld/scipy_1637806954976/work
 gunicorn
