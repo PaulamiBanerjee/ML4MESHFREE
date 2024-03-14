@@ -40,9 +40,9 @@ X_test_Time = pd.DataFrame(test_data, columns=inp_cols_Time)
 
 y_test = pd.DataFrame(test_data, columns=output_columns)
 
-drag_model = pickle.load(open('models/drag_trained_model_final.pickle', 'rb'))
-lift_model = pickle.load(open('models/lift_trained_model_final.pickle', 'rb'))
-time_model = pickle.load(open('models/time_trained_model_final.pickle', 'rb'))
+drag_model = pickle.load(open('models/drag_trained_model.pickle', 'rb'))
+lift_model = pickle.load(open('models/lift_trained_model.pickle', 'rb'))
+time_model = pickle.load(open('models/time_trained_model.pickle', 'rb'))
 
 y_test_cD_pred_interval = pd.DataFrame(drag_model.predict(X_test_cD, alpha=0.15)[1].reshape(-1,2), index=X_test_cD.index, columns=["left", "right"])
 y_test_cL_pred_interval = pd.DataFrame(lift_model.predict(X_test_cL, alpha=0.2)[1].reshape(-1,2), index=X_test_cL.index, columns=["left", "right"])
