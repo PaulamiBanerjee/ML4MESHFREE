@@ -1,0 +1,9 @@
+dash==2.11.1
+dash-bootstrap-components==1.5.0
+lightgbm
+MAPIE
+numpy
+pandas
+scikit-learn==1.2.2
+plotly
+gunicorn
