@@ -28,7 +28,7 @@ input_df['Hmax'] = input_df['Hmax'].round(decimals = 8)
 data = pd.concat([input_df, output_df], axis=1)
 
 #Predictor part
-test_data = pd.read_csv('data/test_data.csv')
+test_data = pd.read_csv('data/test_data_deployed.csv')
 
 inp_cols_cD = ['Hmin', 'Hmax', 'COMP_DoOrganizeOnlyAfterHowManyCycles', 'max_N_stencil', 'ord_laplace', 'DIFFOP_kernel_Neumann']
 inp_cols_cL = ['Hmin', 'Hmax', 'max_N_stencil', 'ord_gradient', 'ord_laplace', 'DIFFOP_kernel_Neumann']
@@ -40,9 +40,9 @@ X_test_Time = pd.DataFrame(test_data, columns=inp_cols_Time)
 
 y_test = pd.DataFrame(test_data, columns=output_columns)
 
-drag_model = pickle.load(open('models/drag_trained_model.pickle', 'rb'))
-lift_model = pickle.load(open('models/lift_trained_model.pickle', 'rb'))
-time_model = pickle.load(open('models/time_trained_model.pickle', 'rb'))
+drag_model = pickle.load(open('models/drag_trained_model_final.pickle', 'rb'))
+lift_model = pickle.load(open('models/lift_trained_model_final.pickle', 'rb'))
+time_model = pickle.load(open('models/time_trained_model_final.pickle', 'rb'))
 
 y_test_cD_pred_interval = pd.DataFrame(drag_model.predict(X_test_cD, alpha=0.15)[1].reshape(-1,2), index=X_test_cD.index, columns=["left", "right"])
 y_test_cL_pred_interval = pd.DataFrame(lift_model.predict(X_test_cL, alpha=0.2)[1].reshape(-1,2), index=X_test_cL.index, columns=["left", "right"])
