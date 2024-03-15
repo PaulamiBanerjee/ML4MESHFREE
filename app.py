@@ -39,7 +39,7 @@ X_test_cL = pd.DataFrame(test_data, columns=inp_cols_cL)
 X_test_Time = pd.DataFrame(test_data, columns=inp_cols_Time)
 
 y_test = pd.DataFrame(test_data, columns=output_columns)
-
+'''
 drag_model = pickle.load(open('models/drag_trained_model_final.pickle', 'rb'))
 lift_model = pickle.load(open('models/lift_trained_model_final.pickle', 'rb'))
 time_model = pickle.load(open('models/time_trained_model_final.pickle', 'rb'))
@@ -54,7 +54,7 @@ test_data['cL-value_Direct_min'] = y_test_cL_pred_interval['left']
 test_data['cL-value_Direct_max'] = y_test_cL_pred_interval['right']
 test_data['WallTimeTotal_h_min'] = y_test_Time_pred_interval['left']
 test_data['WallTimeTotal_h_max'] = y_test_Time_pred_interval['right']
-
+'''
 #Dashboard Layout
 
 shadow_style = {
@@ -173,7 +173,7 @@ def update_graph_tab1(input_column, output_column):
     elif(output_column == 'WallTimeTotal_h'):
         fig.update_yaxes(title_text='Runtime (hours)')
     return fig
-
+'''
 @app.callback(
     Output('tab-2_relation_graph', 'figure'),
     [Input('tab-2_input_dropdown', 'value'),
@@ -260,7 +260,7 @@ def update_prediction(hmin, hmax, cycles, stencil, ord_grad, ord_lapl, kernel_la
     time_label = str(round(time_output.iloc[0,0], 4)) + " - " + str(round(time_output.iloc[0,1], 4))
 
     return drag_label, lift_label, time_label
-
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)
